@@ -1,0 +1,6 @@
+# Logic Mapper Extension Configuration
+extension:
+  name: "Logic Mapper"
+  version: "1.0.0"
+  description: "Visualizer Logic fo Burpsuite"
+

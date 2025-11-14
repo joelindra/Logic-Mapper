@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="LogicMapper" default="dist" basedir=".">
+    <description>Logic Mapper - Burp Suite Extension</description>
+    
+    <!-- Properties -->
+    <property name="src.dir" value="src"/>
+    <property name="build.dir" value="build"/>
+    <property name="dist.dir" value="dist"/>
+    <property name="lib.dir" value="lib"/>
+    <!-- Version will be read from config.yaml during build -->
+    <property name="version" value="1.0"/>
+    
+    <!-- Classpath -->
+    <path id="classpath">
+        <fileset dir="${lib.dir}">
+            <include name="*.jar"/>
+        </fileset>
+    </path>
+    
+    <!-- Clean -->
+    <target name="clean">
+        <delete dir="${build.dir}"/>
+        <delete dir="${dist.dir}"/>
+    </target>
+    
+    <!-- Compile -->
+    <target name="compile" depends="clean">
+        <mkdir dir="${build.dir}"/>
+        <javac srcdir="${src.dir}" destdir="${build.dir}" 
+               classpathref="classpath" 
+               source="1.8" 
+               target="1.8"
+               encoding="UTF-8"
+               includeantruntime="false">
+            <compilerarg value="-Xlint:unchecked"/>
+        </javac>
+        <copy todir="${build.dir}">
+            <fileset dir="${src.dir}">
+                <exclude name="**/*.java"/>
+            </fileset>
+        </copy>
+        <!-- Copy config.yaml to build directory -->
+        <copy file="config.yaml" todir="${build.dir}"/>
+    </target>
+    
+    <!-- Create JAR -->
+    <target name="dist" depends="compile">
+        <mkdir dir="${dist.dir}"/>
+        <jar destfile="${dist.dir}/LogicMapper-${version}.jar" basedir="${build.dir}">
+            <manifest>
+                <attribute name="Implementation-Title" value="Logic Mapper"/>
+                <attribute name="Implementation-Version" value="${version}"/>
+            </manifest>
+        </jar>
+    </target>
+    
+    <!-- Run (for testing) -->
+    <target name="run" depends="dist">
+        <echo message="Build complete! JAR file: ${dist.dir}/LogicMapper-${version}.jar"/>
+        <echo message="Load this JAR file in Burp Suite: Extender -> Extensions -> Add"/>
+    </target>
+</project>
+

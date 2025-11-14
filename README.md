@@ -252,6 +252,17 @@ ant dist
 
 ---
 
+## Configuration
+
+Edit `config.yaml` to customize:
+- Extension name
+- Version number
+- Description
+
+All version references throughout the application read from this file.
+
+---
+
 ## Troubleshooting
 
 ### Extension Not Loading
@@ -272,3 +283,19 @@ ant dist
 - Check Extender → Output for specific error messages
 
 ---
+
+## License
+
+Created for security testing and audit purposes.
+
+---
+
+## Contributing
+
+Contributions, issues, and feature requests are welcome!
+
+---
+
+## Support
+
+For issues or questions, please check the Help dialog in the Logic Mapper tab or review the Extender → Output for error messages.
