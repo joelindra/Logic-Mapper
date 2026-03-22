@@ -11,25 +11,30 @@ Built with the **Montoya API**, this extension is designed for performance, stab
 ## 🚀 Key Features
 
 ### 🎯 Visual Flow Mapping
+
 - **Interactive Canvas**: Create diagrams with a responsive drag-and-drop interface.
 - **Node-Based Visualization**: Each HTTP request is represented as a node with its method and path.
 - **Grid Background**: Built-in alignment for clean and organized logic maps.
 
 ### 🔗 Smart Connections
+
 - **Auto-Connection**: New requests automatically connect to the previous one in sequence.
 - **Manual Connections**: Use `Ctrl+Click` (or `Cmd+Click`) to create manual links between any two nodes.
 - **Multi-Context Support**: Send requests to the mapper from Proxy history, Repeater, or Intercept contexts.
 
 ### 📝 Documentation & Notes
+
 - **Detailed Notes**: Attach notes explaining business logic steps to each node.
 - **Visual Indicators**: Nodes with notes are marked with a yellow "!" for easy identification.
 - **Request Details**: Double-click any node to view the full HTTP request (headers and body).
 
 ### 🎨 Color-Coded Interface
+
 - **HTTP Methods**: Automatically color-coded for quick visual auditing (GET=Green, POST=Blue, etc.).
 - **Smooth Interaction**: Hover effects and intuitive context menus for deleting nodes or connections.
 
 ### 🔄 Multi-Monitor & Performance
+
 - **Burp Frame Parentage**: Popups and dialogs are correctly parented to the Burp Suite window for proper multi-monitor support.
 - **Thread Safety**: All intensive operations (File I/O, JSON parsing) are performed on background threads to keep the UI responsive.
 - **Export/Import**: Save your maps to JSON and reload them later for audits or team collaboration.
@@ -39,26 +44,29 @@ Built with the **Montoya API**, this extension is designed for performance, stab
 ## 🛠️ Build and Installation
 
 ### Prerequisites
+
 - Java 17 or higher
 - Burp Suite Professional or Community Edition
 
 ### Option 1: Build from Source (Recommended)
-You can build the logic mapper using the included Gradle wrapper:
+
+You can build the logic mapper using Maven:
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/logic-mapper.git
+git clone https://github.com/joelindra/logic-mapper.git
 cd "Logic Mapper"
 
 # Build the project
-./gradlew clean build
+mvn clean package
 
 # The compiled JAR will be in:
-# build/libs/LogicMapper-1.0.0.jar
+# target/Logic-Mapper-1.0.0.jar
 ```
 
 ### Option 2: Load in Burp Suite
-1. Download or build the `LogicMapper-1.0.0.jar`.
+
+1. Download or build the `Logic-Mapper-1.0.0.jar`.
 2. Open Burp Suite.
 3. Go to **Extensions** -> **Installed** -> **Add**.
 4. Select **Extension type**: `Java`.
